@@ -1,1 +1,62 @@
-Put your third prompt version here.
+**Prompt ID:** P1-V3 
+Improved Resume Analyzer
+
+You are an experienced resume reviewer and career coach. Analyze the given resume for ATS compatibility, skills, formatting, projects, and overall quality.
+
+Identify the **5 most important weaknesses** and explain how to fix each one. Give practical improvement instructions, such as:
+- How to rewrite weak bullet points using strong action verbs and measurable results.
+- How to improve project descriptions and highlight relevant technical skills.
+- How to make the resume more ATS-friendly using relevant keywords and clear formatting.
+- How to improve the structure, clarity, and presentation of information.
+
+Prioritize changes that will make the biggest difference. Give specific suggestions based on the actual resume. Do not invent skills, experience, or achievements. Keep the feedback clear and actionable.
+
+**Resume:**
+ 
+Khanak Sharma  
+khanaks2020@gmail.com  | +91 8178487266  
+https://github.com/KhanakSharma18  | https://www.linkedin.com/in/khanaksharma18/   
+Education 
+ 
+B.Tech. in Computer Science Engineering | Bennett University, Greater Noida                    CGPA: 9. 13| 2024 -Present  
+12th | Silver Line Prestige School, Ghaziabad                Percentage: 85.4% | 2024  
+10th | Silver Line Prestige School, Ghaziabad                                  Percentage: 92.8% | 2022  
+Skills
+ 
+Languages: C++, JavaScript,  HTML,  CSS 
+Frameworks & Libraries: React.js, Node.js, Express.js  
+Tools & Databases: MongoDB, MySQL, Git, REST APIs  
+Relevant Coursework:  Data Structures and Algorithm ( C++), Operating  systems, microprocessor , Database Management Systems, 
+Object Oriented Programming in Java, Computational Thinking and Programming -Python, Computer  Networks  
+Projects
+Community Hero  (AI-Powered Hyperlocal Issue Reporting Platform )         06/2026 -7/2026  
+● Developed a full -stack AI -powered civic issue reporting platform using React, Firebase, Firestore, Google Maps API, 
+and Google Gemini for intelligent issue classification and automated report generation.  
+● Implemented multilingual (English/Hindi) and voice -enabled reporting, real -time issue tracking, smart department 
+routing, gamification, and an admin dashboard with analytics for efficient municipal issue management.  
+● Deployed the application on Google Cloud Run with secure Firebase Authentication and responsive UI optimized for 
+desktop and mobile users.  
+Tools:  React.js ·Vite ·Tailwind CSS ·Firebase Authentication ·Firestore ·Firebase Storage ·Google Maps API ·Google 
+Gemini API ·Google Cloud Run  
+PizzaCraft (Full Stack Pizza Delivery App )          05/2026 -06/2026  
+● Built a full stack pizza delivery platform with JWT -based authentication including email verification, forgot password, 
+and role -based access for admin and users  
+● Developed a multi -step custom pizza builder with Razorpay payment gateway integration in test mode for seamless 
+order placement  
+● Created an admin dashboard for real -time order and inventory management, including automated low -stock alerts and 
+live order tracking updates.  
+ Tools: React.js · Node.js · MongoDB · Razorpay  
+Rakshak (Safety App)                                                                                                                 02/2026 - 03/2026  
+● Engineered a security -focused application architecture for immediate crisis intervention and low -profile emergency 
+signaling  
+● Deployed integrated protocols including instantaneous SOS, real -time geolocation broadcasting, and automated vocal 
+distress recognition  
+● Optimized user safety via covert functionalities such as simulated telephonic calls and motion -activated alert triggers  
+Tools:  Flutter, Speech Recognition APIs, GPS APIs  
+Certificates  
+ 
+Foundations of User Experience (UX) Design  (Google -Coursera)                                   14/01/2026  
+Data Structures and Algorithms ( Infosys Springboard)                                01/01/2025  
+Web Development Masterclass (Udemy)                     26/07/2025  
+AWS Academy Graduate - Cloud Foundations - Training Badge                  03/05/2026   
+Python Fundamentals ( Infosys Springboard)                    12/10/2024  
