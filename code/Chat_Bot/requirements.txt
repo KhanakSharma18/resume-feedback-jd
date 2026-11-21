@@ -1,11 +1,4 @@
-Flask
+streamlit
 PyPDF2
 requests
 numpy
-
-# NEW - semantic matching (downloads an ~80 MB model the first time it runs)
-sentence-transformers
-
-# NEW - optional: spaCy NER to spot tools the skills database does not know yet
-spacy
-# after installing, run once:  python -m spacy download en_core_web_sm

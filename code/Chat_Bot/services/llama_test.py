@@ -11,6 +11,9 @@ import os
 import requests
 
 CONCISE_SUFFIX = " keep the answer short and precise"   # appended to every prompt unless concise=False
+GROQ_URL = "https://api.groq.com/openai/v1/chat/completions"
+GROQ_MODEL = os.environ.get("GROQ_MODEL", "llama-3.1-8b-instant")   # Llama 3.1 8B Instruct on Groq
+DEFAULT_SYSTEM = "You are a helpful AI assistant who provides clear and concise answers."
 
 
 def query_model(text_prompt, url=None, system=None, temperature=None, concise=True):
@@ -21,9 +24,26 @@ def query_model(text_prompt, url=None, system=None, temperature=None, concise=Tr
       concise      keep the old behaviour of adding "keep the answer short and precise"
     Returns "Model error: ..." text if the model cannot be reached.
     """
+    key = os.environ.get("GROQ_API_KEY", "").strip()
+    if key and not url:
+        try:
+            r = requests.post(
+                GROQ_URL,
+                headers={"Authorization": f"Bearer {key}", "Content-Type": "application/json"},
+                json={"model": GROQ_MODEL,
+                      "messages": [{"role": "system", "content": system or DEFAULT_SYSTEM},
+                                   {"role": "user", "content": text_prompt + (CONCISE_SUFFIX if concise else "")}],
+                      "temperature": 0.6 if temperature is None else temperature,
+                      "top_p": 0.9, "max_tokens": 512},
+                timeout=120)
+            r.raise_for_status()
+            return r.json()["choices"][0]["message"]["content"]
+        except (requests.exceptions.RequestException, KeyError, ValueError) as e:
+            return f"Model error: {e}"
+
     url = url or os.environ.get("LLAMA_API_URL", "").strip()
     if not url:
-        return "Model error: LLAMA_API_URL is not set. Start the Colab notebook and set it to the URL it prints (ending in /query)."
+        return "Model error: no model configured. Set GROQ_API_KEY, or start the Colab notebook and set LLAMA_API_URL."
 
     payload = {"prompt": text_prompt + (CONCISE_SUFFIX if concise else "")}
     if system is not None:
