@@ -29,7 +29,7 @@ from services.quiz import grade_answer, ai_feedback              # noqa: E402
 
 st.set_page_config(page_title="Resume Feedback vs Job Description", page_icon="📄", layout="wide")
 st.title("📄 Resume feedback against a job description")
-st.caption("SCSE4041 Mini Project, team PE-B49-22. Llama 3.1 8B Instruct via Groq + rule-based checks."
+st.caption("SCSE4041 Mini Project, team PE-B49-22. Llama 3.1 8B Instruct via Groq + rule-based checks.")
 
 
 def read_pdf(file):
