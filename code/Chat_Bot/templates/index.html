@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>AI Assistant — Arc Pink</title>
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet">
+
+  <!-- jsPDF & mammoth for client docx -> text -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mammoth/1.4.16/mammoth.browser.min.js"></script>
+
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+  <div class="arc-app">
+
+    <!-- LEFT SIDEBAR -->
+    <aside class="sidebar" role="navigation" aria-label="Chats and profile">
+      <div class="sidebar-top">
+        <div class="brand">
+          <div class="brand-crest" aria-hidden="true"></div>
+          <div class="brand-name">AI Assistant</div>
+        </div>
+
+        <button id="newChatBtn" class="mac-btn new-chat">＋ New chat</button>
+        <button id="resumelyzerBtn" class="mac-btn resumelyzer-btn">Resumelyzer</button>
+
+        <div class="search-wrap">
+          <input id="chatSearch" type="search" placeholder="Search chats..." />
+        </div>
+      </div>
+
+      <div id="chatList" class="chat-list" aria-live="polite">
+        <!-- chat items injected by JS -->
+      </div>
+
+      <div class="sidebar-bottom">
+        <button id="profileBtn" class="profile-btn" title="Profile">
+          <div class="avatar">A</div>
+          <div class="profile-meta">
+            <div class="profile-name">You</div>
+            <div class="profile-sub">View profile</div>
+          </div>
+        </button>
+      </div>
+    </aside>
+
+    <!-- RIGHT: MAIN CHAT AREA -->
+    <main class="main-panel" role="main">
+      <header class="chat-header" role="banner">
+        <div class="header-top">
+          <div class="title-left">
+            <div class="title-dot" aria-hidden="true"></div>
+            <div>
+              <h1 id="headerTitle">AI Assistant</h1>
+              <div id="chatSub" class="chat-sub">Ask anything — PDF & mic supported</div>
+            </div>
+          </div>
+
+          <div class="header-actions" style="display:flex; gap:8px; align-items:center;">
+            <!-- new controls: modes, theme, export, notes -->
+            <div class="top-controls" style="display:flex;align-items:center;gap:8px;">
+              <select id="modeSelect" class="mode-select" title="Choose chat mode">
+                <option value="general">General</option>
+                <option value="resumelyzer">Resumelyzer</option>
+                <option value="code">Code Assistant</option>
+                <option value="study">Study Mode</option>
+                <option value="email">Email Writer</option>
+              </select>
+
+              <button id="themeToggle" class="icon-btn" title="Toggle theme">🌙</button>
+              <button id="exportChatBtn" class="icon-btn" title="Export chat to PDF">📄</button>
+              <button id="notesToggle" class="icon-btn" title="Open notes">📝</button>
+            </div>
+
+          </div>
+        </div>
+      </header>
+
+      <!-- Chat messages (keep ID #output) -->
+      <section id="output" class="chat-output" role="log" aria-live="polite">
+      </section>
+
+      <!-- Input area (keep IDs intact) -->
+      <div class="input-area">
+        <div class="left-controls">
+          <label class="upload-btn file-upload-label" for="fileUpload" title="Attach PDF or file">
+            <input type="file" id="fileUpload" hidden>
+            <div class="upload-icon" aria-hidden="true">📎</div>
+          </label>
+        </div>
+
+        <div class="input-box">
+          <input type="text" id="commandInput" placeholder="Type or speak your command..." autocomplete="off" />
+          <button id="micBtn" class="mic-btn" title="Record">🎤</button>
+        </div>
+
+        <button id="sendBtn" class="send-btn" title="Send">
+          <img src="{{ url_for('static', filename='images/send2.png') }}" alt="send" class="send-icon" />
+        </button>
+      </div>
+    </main>
+
+    <!-- RIGHT: RESUMELYZER PANEL (only visible when Resumelyzer is on) -->
+    <aside id="resumePanel" class="resume-panel" aria-label="Resume analysis">
+      <div class="rz-head">
+        <h2>Resume check</h2>
+        <button id="rzClose" class="icon-btn" title="Close panel" aria-label="Close panel">✕</button>
+      </div>
+
+      <div id="resumeStatus" class="resume-status">No resume uploaded yet. Use the 📎 button to attach a PDF.</div>
+
+      <div class="rz-options" role="group" aria-label="Choose what to check">
+        <button class="rz-opt" data-type="ats" disabled>
+          <span class="rz-opt-title">ATS score</span>
+          <span class="rz-opt-sub">How well software can read your resume</span>
+        </button>
+        <button class="rz-opt" data-type="weaknesses" disabled>
+          <span class="rz-opt-title">Your weaknesses</span>
+          <span class="rz-opt-sub">What is holding your resume back</span>
+        </button>
+        <button class="rz-opt" data-type="improve" disabled>
+          <span class="rz-opt-title">What to improve</span>
+          <span class="rz-opt-sub">Specific changes to make</span>
+        </button>
+      </div>
+
+      <details class="rz-jd">
+        <summary>Add a job description (optional)</summary>
+        <textarea id="jobDesc" placeholder="Paste the job description here to get a job match score."></textarea>
+      </details>
+
+      <!-- appears once a job description is typed; builds a tailored resume PDF and downloads it -->
+      <button id="curateBtn" class="rz-curate" type="button" hidden disabled>
+        Curate resume for this job
+        <span class="rz-opt-sub">Reorders your resume for this job and downloads it as a PDF</span>
+      </button>
+
+      <!-- appears with the curate button; builds interview questions from your projects + the job post -->
+      <button id="interviewBtn" class="rz-curate rz-alt" type="button" hidden disabled>
+        Interview questions
+        <span class="rz-opt-sub">A quiz from your projects and this job. Answer by typing or speaking</span>
+      </button>
+
+      <div id="resumeResult" class="rz-result" aria-live="polite">
+        <div class="rz-placeholder">Pick an option above to see your result here.</div>
+      </div>
+    </aside>
+  </div>
+
+  <!-- Interview quiz popup (filled by script.js) -->
+  <div id="quizModal" class="qz-overlay" hidden role="dialog" aria-modal="true" aria-labelledby="quizTitle">
+    <div class="qz-card">
+      <div class="qz-head">
+        <h2 id="quizTitle">Interview practice</h2>
+        <button id="quizClose" class="icon-btn" type="button" title="Close (your progress is kept)" aria-label="Close quiz">✕</button>
+      </div>
+      <div id="quizBody" class="qz-body"></div>
+    </div>
+  </div>
+
+  <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>

@@ -1,0 +1,7 @@
+Full Stack Developer Intern
+We are looking for a developer to build and maintain web applications using React, Node.js and Express.
+- Build REST APIs and integrate them with MongoDB or MySQL databases.
+- Write clean, tested code and use Git for version control.
+- Deploy services with Docker on AWS and work with CI/CD pipelines.
+- Experience with TypeScript and Kubernetes is a plus.
+- Strong communication and teamwork skills, comfortable working in an Agile team.

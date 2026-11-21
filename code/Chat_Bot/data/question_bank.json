@@ -1,0 +1,1154 @@
+{
+ "_help": "Technical quiz questions per skill (key = canonical name from skills_db.json). q = question, a = model answer shown by 'Show correct answer', keys = key concepts used to check the user's answer; use 'a|b' for accepted alternatives. Add or edit freely.",
+ "questions": {
+  "Python": [
+   {
+    "q": "What is the difference between a list, a tuple and a set in Python, and when would you use each?",
+    "a": "A list is an ordered, mutable sequence. A tuple is ordered but immutable, so it is hashable and good for fixed records or dictionary keys. A set is an unordered collection of unique, hashable items with fast membership tests. Use a list when order and changes matter, a tuple for fixed data, and a set for uniqueness and fast lookups.",
+    "keys": [
+     "mutable|changeable",
+     "immutable|cannot be changed|can't be changed",
+     "unique|duplicates",
+     "ordered|order",
+     "hash|hashable|fast lookup|membership"
+    ]
+   },
+   {
+    "q": "How do decorators and generators work in Python? Give a real use for each.",
+    "a": "A decorator is a function that wraps another function to add behaviour without changing its code, for example logging, caching or authentication checks. A generator uses yield to produce values lazily, one at a time, which saves memory for large or infinite sequences.",
+    "keys": [
+     "wrap|wraps|wrapper",
+     "function",
+     "yield",
+     "lazy|lazily|one at a time|memory",
+     "logging|caching|auth|timing|authentication"
+    ]
+   },
+   {
+    "q": "How does Python manage memory, and what does the GIL mean for multithreading?",
+    "a": "Python frees memory with reference counting plus a cyclic garbage collector. The GIL lets only one thread run Python bytecode at a time, so threads do not speed up CPU-bound work. Use multiprocessing for CPU-bound tasks and threads or asyncio for I/O-bound ones.",
+    "keys": [
+     "reference count|reference counting|garbage collect",
+     "gil|global interpreter lock",
+     "one thread",
+     "multiprocessing|processes",
+     "io|i/o|asyncio"
+    ]
+   }
+  ],
+  "Java": [
+   {
+    "q": "Explain the difference between an interface and an abstract class in Java.",
+    "a": "An interface defines a contract with no instance state (apart from default methods) and a class can implement many of them. An abstract class can hold state and partial implementation, but a class can extend only one. Use an interface for capabilities and an abstract class for shared base behaviour.",
+    "keys": [
+     "multiple|many",
+     "single inheritance|only one|extend one",
+     "state|fields|variables",
+     "implementation|default method",
+     "contract|abstraction"
+    ]
+   },
+   {
+    "q": "How does garbage collection work in Java?",
+    "a": "The JVM automatically frees objects that are no longer reachable from GC roots. The heap is split into young and old generations: short-lived objects die young in minor collections and survivors are promoted to the old generation.",
+    "keys": [
+     "reachable|reference",
+     "heap",
+     "young|eden",
+     "old generation|tenured|promot",
+     "automatic|automatically|jvm"
+    ]
+   },
+   {
+    "q": "What is the difference between HashMap and ConcurrentHashMap?",
+    "a": "HashMap is not thread-safe and can be corrupted by concurrent writes. ConcurrentHashMap is thread-safe using fine-grained locking or CAS on buckets, so many threads can read and write without locking the whole map. It also does not allow null keys or values.",
+    "keys": [
+     "thread-safe|thread safe|synchronized|concurrent",
+     "lock|locking|cas|segment|bucket",
+     "null",
+     "performance|scalab"
+    ]
+   }
+  ],
+  "JavaScript": [
+   {
+    "q": "Explain closures and the event loop in JavaScript.",
+    "a": "A closure is a function that remembers the variables of the scope where it was created, even after that scope has finished. The event loop lets single-threaded JavaScript handle async work: when the call stack is empty it pushes callbacks from the microtask queue (promises) and then the task queue (timers, events).",
+    "keys": [
+     "remember|access|outer|scope|lexical",
+     "call stack|stack",
+     "queue|callback",
+     "microtask|promise",
+     "single-thread|single thread|non-blocking|asynchronous"
+    ]
+   },
+   {
+    "q": "What is the difference between var, let and const, and what is hoisting?",
+    "a": "var is function-scoped and hoisted with the value undefined. let and const are block-scoped and sit in the temporal dead zone until declared; const cannot be reassigned. Hoisting means declarations are moved to the top of their scope before the code runs.",
+    "keys": [
+     "function scope|function-scoped",
+     "block scope|block-scoped",
+     "hoist",
+     "reassign|reassigned",
+     "temporal dead zone|tdz|undefined"
+    ]
+   },
+   {
+    "q": "How do promises and async/await differ, and how do you handle errors in each?",
+    "a": "A promise represents a future value, handled with then and catch. async/await is syntax over promises that makes async code read sequentially. Errors are handled with try/catch in async functions instead of catch chains, and Promise.all runs tasks in parallel.",
+    "keys": [
+     "promise",
+     "then|catch",
+     "async",
+     "await",
+     "try|catch|error",
+     "promise.all|parallel"
+    ]
+   }
+  ],
+  "TypeScript": [
+   {
+    "q": "What does TypeScript give you over plain JavaScript, and when is it not worth it?",
+    "a": "TypeScript adds static types, so type errors are caught at compile time, with better editor autocomplete and safer refactoring. It is less worth it for tiny scripts or throwaway prototypes where the build step and type overhead outweigh the benefit.",
+    "keys": [
+     "static type|types|type checking",
+     "compile|compile time|compile-time",
+     "autocomplete|tooling|refactor",
+     "errors|bugs",
+     "small|prototype|overhead|build step"
+    ]
+   },
+   {
+    "q": "Explain the difference between an interface and a type alias, and what generics are for.",
+    "a": "Interfaces describe object shapes and can be extended or merged. Type aliases can also name unions, intersections and primitives. Generics let you write reusable code that works with many types while keeping type safety, for example a function that returns the same type it receives.",
+    "keys": [
+     "object shape|shape|object",
+     "extend|merge|declaration merging",
+     "union|intersection",
+     "generic|reusable",
+     "type safety|type-safe|type safe"
+    ]
+   }
+  ],
+  "C++": [
+   {
+    "q": "What is the difference between a pointer and a reference in C++?",
+    "a": "A pointer holds a memory address, can be null and can be reassigned. A reference is an alias for an existing object, must be initialised and cannot be reseated or null. References are safer for passing arguments; pointers are needed for dynamic memory and optional values.",
+    "keys": [
+     "address",
+     "null",
+     "reassign|reseat|reassigned",
+     "alias",
+     "initial"
+    ]
+   },
+   {
+    "q": "Explain RAII and smart pointers.",
+    "a": "RAII ties a resource's lifetime to an object: acquire the resource in the constructor and release it in the destructor, so cleanup is automatic even when exceptions occur. Smart pointers such as unique_ptr and shared_ptr apply this to heap memory and prevent leaks.",
+    "keys": [
+     "constructor",
+     "destructor",
+     "resource",
+     "unique_ptr|shared_ptr|smart pointer",
+     "leak|exception|automatic"
+    ]
+   }
+  ],
+  "C": [
+   {
+    "q": "How does memory allocation work in C (stack vs heap), and what is a memory leak?",
+    "a": "Stack memory holds local variables and is freed automatically when the function returns. Heap memory is allocated manually with malloc and must be released with free. A memory leak happens when heap memory is allocated but never freed.",
+    "keys": [
+     "stack",
+     "heap",
+     "malloc",
+     "free",
+     "leak"
+    ]
+   },
+   {
+    "q": "What is a dangling pointer and how do you avoid it?",
+    "a": "A dangling pointer points to memory that has been freed or has gone out of scope, and using it is undefined behaviour. Avoid it by setting pointers to NULL after free, never returning the address of a local variable, and keeping clear ownership rules.",
+    "keys": [
+     "freed|free|deallocated",
+     "scope|local variable",
+     "undefined behaviour|undefined behavior|crash",
+     "null",
+     "ownership"
+    ]
+   }
+  ],
+  "React": [
+   {
+    "q": "How does the virtual DOM work and why does React use keys in lists?",
+    "a": "React keeps a virtual copy of the UI, diffs it against the previous version when state changes, and updates only the changed real DOM nodes. Keys give list items a stable identity so React can match, reorder and reuse them instead of re-creating them.",
+    "keys": [
+     "virtual dom",
+     "diff|reconcil",
+     "state",
+     "key",
+     "identity|unique|stable|re-render|reorder"
+    ]
+   },
+   {
+    "q": "When would you use useEffect, useMemo and useCallback, and what are their pitfalls?",
+    "a": "useEffect runs side effects such as fetching or subscriptions after render, with a dependency array controlling when and a cleanup function. useMemo caches an expensive computed value and useCallback caches a function so children do not re-render needlessly. Pitfalls are missing dependencies, stale closures and overusing memoisation.",
+    "keys": [
+     "side effect|fetch|subscription",
+     "dependency|dependencies",
+     "cleanup",
+     "memo|cache|memoiz",
+     "stale|re-render|infinite loop"
+    ]
+   },
+   {
+    "q": "How do you decide between local state, context and a state library like Redux?",
+    "a": "Use local state for data one component owns, context for rarely changing values shared widely such as theme or auth, and a library like Redux when many components share complex, frequently changing state that needs predictable updates and debugging tools. Start simple and add tools only when prop drilling becomes painful.",
+    "keys": [
+     "local|usestate",
+     "context",
+     "redux|zustand|state library|global",
+     "prop drilling|props",
+     "complex|shared|predictable|simple"
+    ]
+   }
+  ],
+  "Node.js": [
+   {
+    "q": "How does Node.js handle many concurrent requests on a single thread?",
+    "a": "Node uses a single-threaded event loop with non-blocking I/O. Slow operations such as network or disk reads are handed to the system or a thread pool and their callbacks run when ready, so one thread can serve many connections. CPU-heavy work blocks it and should go to worker threads or another service.",
+    "keys": [
+     "event loop",
+     "non-blocking|asynchronous|async",
+     "single thread|single-thread",
+     "callback|promise",
+     "worker|thread pool|cpu"
+    ]
+   },
+   {
+    "q": "What is the difference between process.nextTick, setImmediate and setTimeout?",
+    "a": "process.nextTick runs its callback right after the current operation, before the event loop continues, so it has the highest priority. setImmediate runs in the check phase after I/O callbacks, and setTimeout with 0 runs in the timers phase after a minimum delay.",
+    "keys": [
+     "nexttick",
+     "setimmediate",
+     "settimeout",
+     "event loop",
+     "phase|before|after|priority"
+    ]
+   }
+  ],
+  "Express.js": [
+   {
+    "q": "What is middleware in Express and how does the order of middleware matter?",
+    "a": "Middleware are functions with access to the request, the response and next. They run in the order they are registered and each can change the request, end the response or call next(). Order matters: body parsing and authentication must come before the routes that need them, and error handlers go last.",
+    "keys": [
+     "request",
+     "response",
+     "next",
+     "order",
+     "error handler|error handling|authentication|body parser|parsing"
+    ]
+   },
+   {
+    "q": "How do you structure error handling in an Express app?",
+    "a": "Define an error-handling middleware with four arguments (err, req, res, next) at the end of the chain. Pass errors to it with next(err), make sure async handlers forward rejections to it, and return consistent JSON errors with proper status codes while logging details on the server.",
+    "keys": [
+     "next(err)|next err|next",
+     "four arguments|err, req|error middleware|error-handling middleware|error handling middleware",
+     "async|try",
+     "status code|status",
+     "log"
+    ]
+   }
+  ],
+  "Flask": [
+   {
+    "q": "How does Flask handle request context and sessions?",
+    "a": "Flask uses context locals: the request context holds the current request and session during a request, and the application context holds app-level data such as config. The session is stored in a signed cookie by default, so it needs a secret key and should not hold large or sensitive data.",
+    "keys": [
+     "context",
+     "request",
+     "session",
+     "secret key|secret_key",
+     "cookie|signed"
+    ]
+   },
+   {
+    "q": "How would you structure a larger Flask app (blueprints, config, extensions)?",
+    "a": "Use an application factory (create_app) that builds the app with config per environment, split routes into blueprints by feature, create extensions such as the database outside the factory and bind them with init_app, and keep business logic in a separate services layer.",
+    "keys": [
+     "blueprint",
+     "factory|create_app",
+     "config|configuration",
+     "extension|init_app",
+     "service|structure|folder"
+    ]
+   }
+  ],
+  "Django": [
+   {
+    "q": "Explain Django's request/response cycle and what the ORM does for you.",
+    "a": "A request passes through middleware to the URL router, which calls a view. The view uses models and returns a response, often rendering a template. The ORM maps Python classes to database tables so you query with Python instead of raw SQL, and it manages migrations.",
+    "keys": [
+     "url",
+     "view",
+     "model",
+     "template",
+     "orm|database|middleware"
+    ]
+   },
+   {
+    "q": "What are Django migrations and how do you handle conflicts?",
+    "a": "Migrations are version-controlled files that describe changes to the database schema, created with makemigrations and applied with migrate. Conflicts from parallel branches are resolved by merging the migration graph (makemigrations --merge) or by rebasing and regenerating the migration.",
+    "keys": [
+     "schema",
+     "makemigrations",
+     "migrate",
+     "conflict|merge",
+     "version|history|dependency|dependencies"
+    ]
+   }
+  ],
+  "FastAPI": [
+   {
+    "q": "How does FastAPI use type hints for validation, and how is it different from Flask?",
+    "a": "FastAPI uses Python type hints and Pydantic models to validate and parse requests automatically and to generate OpenAPI docs. Unlike Flask it is async-first and built on Starlette, giving automatic validation and interactive documentation with less manual code.",
+    "keys": [
+     "type hint|type hints|types",
+     "pydantic|validation",
+     "async",
+     "openapi|swagger|docs|documentation",
+     "flask"
+    ]
+   }
+  ],
+  "HTML": [
+   {
+    "q": "What is semantic HTML and why does it matter for accessibility and SEO?",
+    "a": "Semantic HTML uses elements that describe meaning, such as header, nav, main, article and button, instead of generic divs. It helps screen readers and keyboard users navigate, and helps search engines understand the structure of the page.",
+    "keys": [
+     "header|nav|article|main|section",
+     "meaning|semantic",
+     "screen reader|accessib",
+     "seo|search engine",
+     "div"
+    ]
+   }
+  ],
+  "CSS": [
+   {
+    "q": "Explain the CSS box model and the difference between flexbox and grid.",
+    "a": "Every element is a box made of content, padding, border and margin. Flexbox lays items out in one dimension (a row or a column) and is great for alignment, while grid handles two-dimensional layouts with rows and columns together.",
+    "keys": [
+     "content",
+     "padding",
+     "border",
+     "margin",
+     "flexbox|flex",
+     "grid",
+     "one-dimensional|one dimension|two-dimensional|two dimension|rows and columns"
+    ]
+   },
+   {
+    "q": "How do you make a layout responsive?",
+    "a": "Use fluid units such as percentages, rem and fr instead of fixed pixels, flexbox or grid for layouts that reflow, media queries to adjust styles at breakpoints, and the viewport meta tag, designing mobile-first.",
+    "keys": [
+     "media quer",
+     "flex|grid",
+     "viewport",
+     "relative|percent|rem|fluid|%",
+     "mobile-first|mobile first|breakpoint"
+    ]
+   }
+  ],
+  "SQL": [
+   {
+    "q": "Explain the different types of JOIN with an example.",
+    "a": "INNER JOIN returns only rows that match in both tables. LEFT JOIN returns all rows from the left table plus matches from the right, with NULLs where there is none. RIGHT JOIN is the reverse, FULL OUTER JOIN returns all rows from both, and CROSS JOIN returns every combination.",
+    "keys": [
+     "inner",
+     "left",
+     "right",
+     "full",
+     "null|match|matching"
+    ]
+   },
+   {
+    "q": "What is an index, how does it speed up queries, and what does it cost?",
+    "a": "An index is a separate sorted structure, usually a B-tree, that lets the database find rows without scanning the whole table, which speeds up reads and filters. The cost is extra storage and slower inserts, updates and deletes because the index must be maintained.",
+    "keys": [
+     "b-tree|btree|tree|sorted",
+     "scan|full table scan",
+     "faster|speed|read",
+     "storage|space",
+     "slower writes|insert|update|write"
+    ]
+   },
+   {
+    "q": "What is the difference between WHERE and HAVING, and what is a window function?",
+    "a": "WHERE filters individual rows before grouping, while HAVING filters groups after GROUP BY and aggregation. A window function calculates a value across related rows, such as a running total or a rank, without collapsing them into one row, using OVER with PARTITION BY and ORDER BY.",
+    "keys": [
+     "where",
+     "having",
+     "group by|aggregate|aggregation",
+     "window",
+     "over|partition|rank|running"
+    ]
+   }
+  ],
+  "MySQL": [
+   {
+    "q": "What are ACID properties and how does MySQL's InnoDB engine provide them?",
+    "a": "ACID means Atomicity (all or nothing), Consistency (valid state), Isolation (concurrent transactions do not interfere) and Durability (committed data survives crashes). InnoDB provides them through transactions, row-level locking, MVCC and a redo log.",
+    "keys": [
+     "atomic",
+     "consistency|consistent",
+     "isolation",
+     "durab",
+     "innodb|transaction|redo|log|mvcc"
+    ]
+   },
+   {
+    "q": "How would you find and fix a slow query in MySQL?",
+    "a": "Use EXPLAIN to see the execution plan and check whether the query uses an index or scans the whole table. Add or fix indexes on filtered and joined columns, avoid SELECT * and functions on indexed columns, and use the slow query log to find the worst queries.",
+    "keys": [
+     "explain",
+     "index",
+     "scan|full table",
+     "slow query log|slow log",
+     "select *|columns|optimi"
+    ]
+   }
+  ],
+  "PostgreSQL": [
+   {
+    "q": "How does PostgreSQL differ from MySQL, and when would you pick it?",
+    "a": "PostgreSQL is a standards-compliant object-relational database with advanced features: JSONB, full-text search, extensions, window functions and strong concurrency through MVCC. Pick it for complex queries, data integrity and extensibility; MySQL is often simpler and fast for basic read-heavy workloads.",
+    "keys": [
+     "jsonb|json",
+     "extension|extensible",
+     "mvcc|concurrency",
+     "standards|compliant|integrity",
+     "complex|advanced"
+    ]
+   },
+   {
+    "q": "What are transaction isolation levels?",
+    "a": "Isolation levels control what concurrent transactions can see: Read Uncommitted, Read Committed, Repeatable Read and Serializable, from weakest to strongest. Higher levels prevent anomalies such as dirty reads, non-repeatable reads and phantom reads, at a cost to concurrency.",
+    "keys": [
+     "read committed",
+     "repeatable read",
+     "serializable",
+     "dirty read",
+     "phantom|non-repeatable"
+    ]
+   }
+  ],
+  "MongoDB": [
+   {
+    "q": "When would you choose MongoDB over a relational database?",
+    "a": "Choose MongoDB when data is document-shaped, the schema changes often or you need easy horizontal scaling, for example catalogues or content. Choose a relational database when you need strong relationships, complex joins and transactions across many tables.",
+    "keys": [
+     "document|json",
+     "schema|flexible",
+     "scal",
+     "relational|joins",
+     "transaction|relationship"
+    ]
+   },
+   {
+    "q": "How do you model one-to-many relationships in MongoDB (embedding vs referencing)?",
+    "a": "Embed related data inside the parent document when it is small, read together and belongs to one parent. Reference it by id when the many side is large, grows without bound or is shared by many documents. Embedding gives faster reads; referencing gives less duplication.",
+    "keys": [
+     "embed",
+     "reference",
+     "one-to-many|one to many",
+     "large|grow|unbounded|size",
+     "duplicat|read|trade-off|tradeoff"
+    ]
+   }
+  ],
+  "NoSQL": [
+   {
+    "q": "Explain the CAP theorem and how it affects the choice of a database.",
+    "a": "The CAP theorem says a distributed system can guarantee only two of Consistency, Availability and Partition tolerance at once. Since network partitions happen, the real choice is between consistency and availability: CP systems favour correct data, AP systems stay available with eventually consistent data.",
+    "keys": [
+     "consistency",
+     "availability",
+     "partition",
+     "two of three|two out of three|trade-off|choose",
+     "eventual|eventually"
+    ]
+   }
+  ],
+  "Redis": [
+   {
+    "q": "What are common uses of Redis and how do you handle cache invalidation?",
+    "a": "Redis is an in-memory key-value store used for caching, sessions, rate limiting, queues and leaderboards. Cache invalidation is handled with TTL expiry, deleting or updating keys when the source data changes, and patterns such as cache-aside.",
+    "keys": [
+     "in-memory|memory",
+     "cache|caching",
+     "ttl|expire|expiry|expiration",
+     "invalidat|delete|update",
+     "session|queue|rate limit|leaderboard"
+    ]
+   }
+  ],
+  "Firebase": [
+   {
+    "q": "How do Firebase security rules work, and what are the limits of Firestore queries?",
+    "a": "Security rules run on the server and decide who can read or write each document based on the user's auth state and the data, so the client cannot bypass them. Firestore queries are limited: they need indexes, cannot do arbitrary joins or full-text search, and filter only on indexed fields.",
+    "keys": [
+     "rules",
+     "auth|authenticated|authentication",
+     "read|write",
+     "index",
+     "join|limit|full-text"
+    ]
+   }
+  ],
+  "Docker": [
+   {
+    "q": "What is the difference between an image and a container, and between a container and a VM?",
+    "a": "An image is a read-only template with the app and its dependencies; a container is a running instance of an image. Containers share the host kernel and are lightweight and fast to start, while a VM runs a full guest operating system on a hypervisor.",
+    "keys": [
+     "template|read-only|blueprint",
+     "running instance|instance|running",
+     "kernel|share",
+     "vm|virtual machine|hypervisor",
+     "lightweight|fast|isolat"
+    ]
+   },
+   {
+    "q": "How would you reduce the size of a Docker image?",
+    "a": "Use a small base image such as alpine or slim, use multi-stage builds so build tools are left out of the final image, combine RUN commands and clean caches, add a .dockerignore, and install only production dependencies.",
+    "keys": [
+     "alpine|slim|small base",
+     "multi-stage|multi stage",
+     "dockerignore",
+     "layer|run",
+     "production|dependencies"
+    ]
+   }
+  ],
+  "Kubernetes": [
+   {
+    "q": "Explain pods, deployments and services in Kubernetes.",
+    "a": "A pod is the smallest deployable unit: one or more containers sharing network and storage. A deployment manages a set of identical pods and handles scaling, rolling updates and self-healing. A service gives pods a stable network address and load-balances traffic to them.",
+    "keys": [
+     "pod",
+     "deployment",
+     "service",
+     "scal",
+     "rolling update|self-heal|load balanc|stable"
+    ]
+   }
+  ],
+  "AWS": [
+   {
+    "q": "Which AWS services have you used and how did you decide between EC2 and Lambda?",
+    "a": "Use EC2 for long-running or custom workloads where you need control of the server, and Lambda for short, event-driven or spiky tasks where you do not want to manage servers and prefer to pay per execution. Lambda has limits on duration and cold starts.",
+    "keys": [
+     "ec2",
+     "lambda",
+     "serverless|no server",
+     "event|trigger",
+     "cost|pay|cold start|limit|duration"
+    ]
+   },
+   {
+    "q": "How do you secure an S3 bucket?",
+    "a": "Keep Block Public Access on, grant access through least-privilege IAM or bucket policies, enable encryption at rest, allow HTTPS only, turn on versioning and access logging, and use pre-signed URLs for temporary access.",
+    "keys": [
+     "block public access|public",
+     "iam|policy|policies",
+     "least privilege|least-privilege",
+     "encrypt",
+     "pre-signed|presigned|logging|versioning"
+    ]
+   }
+  ],
+  "Git": [
+   {
+    "q": "What is the difference between merge and rebase, and how do you resolve a conflict?",
+    "a": "Merge combines branches with a merge commit and keeps history as it happened. Rebase replays your commits on top of another branch for a linear history but rewrites commits. To resolve a conflict, open the marked files, choose the correct code, git add them and continue the merge or rebase.",
+    "keys": [
+     "merge",
+     "rebase",
+     "linear|history",
+     "conflict",
+     "add|continue|commit"
+    ]
+   },
+   {
+    "q": "How do you undo a commit that is already pushed?",
+    "a": "Use git revert, which creates a new commit that undoes the change. It is safe on shared branches because it does not rewrite history. git reset followed by a force-push rewrites history and should only be used on private branches.",
+    "keys": [
+     "revert",
+     "new commit",
+     "history",
+     "reset",
+     "force|shared|safe"
+    ]
+   }
+  ],
+  "GitHub": [
+   {
+    "q": "Describe your pull request workflow and how you review someone else's code.",
+    "a": "Create a feature branch, push it and open a pull request with a clear description, get reviews and passing checks, then merge. When reviewing, check correctness, readability, tests and edge cases, and give specific, kind feedback.",
+    "keys": [
+     "branch",
+     "pull request|pr",
+     "review",
+     "merge",
+     "test|check|feedback"
+    ]
+   }
+  ],
+  "CI/CD": [
+   {
+    "q": "What would a CI/CD pipeline for this kind of project look like?",
+    "a": "On each push the pipeline checks out the code, installs dependencies, runs linting and tests, builds the app or Docker image, and deploys automatically to staging and then production after approval, with a rollback if something fails.",
+    "keys": [
+     "test",
+     "build",
+     "deploy",
+     "lint|install|dependencies",
+     "staging|production|rollback"
+    ]
+   }
+  ],
+  "REST APIs": [
+   {
+    "q": "What makes an API RESTful? Explain HTTP methods, idempotency and status codes.",
+    "a": "REST uses resources identified by URLs and standard HTTP methods: GET reads, POST creates, PUT replaces, PATCH updates and DELETE removes, and it is stateless. GET, PUT and DELETE are idempotent (repeating them gives the same result) while POST is not. Common status codes: 200 OK, 201 Created, 400 bad request, 401/403 auth errors, 404 not found, 500 server error.",
+    "keys": [
+     "get",
+     "post",
+     "put",
+     "idempotent",
+     "stateless|resource",
+     "status code|200|404|201|500"
+    ]
+   },
+   {
+    "q": "How do you version, paginate and secure a REST API?",
+    "a": "Version with a URL prefix such as /v1 or a header, paginate with limit and offset or cursors, and secure with HTTPS, authentication such as JWT or OAuth, authorisation checks, input validation and rate limiting.",
+    "keys": [
+     "version|v1",
+     "paginat|limit|cursor|offset",
+     "https",
+     "authentication|jwt|oauth|token",
+     "rate limit|validation"
+    ]
+   }
+  ],
+  "GraphQL": [
+   {
+    "q": "What problems does GraphQL solve compared with REST, and what new problems does it add?",
+    "a": "GraphQL lets the client ask for exactly the fields it needs from a single endpoint, avoiding over-fetching and many round trips. The downsides are harder caching, the risk of expensive nested queries and the N+1 problem, and a steeper setup.",
+    "keys": [
+     "single endpoint|one endpoint",
+     "exact|only the fields|over-fetch|overfetch|under-fetch",
+     "client",
+     "cach",
+     "n+1|complex|expensive"
+    ]
+   }
+  ],
+  "JWT": [
+   {
+    "q": "How does JWT authentication work, and where should the token be stored on the client?",
+    "a": "A JWT is a signed token with a header, payload and signature. The server issues it after login and the client sends it with each request, so the server can verify it without storing a session. Store it in an httpOnly secure cookie to reduce XSS risk rather than localStorage, and keep it short-lived with refresh tokens.",
+    "keys": [
+     "signature|signed",
+     "payload|claims",
+     "header",
+     "httponly|cookie|localstorage",
+     "expire|short-lived|refresh"
+    ]
+   }
+  ],
+  "Authentication": [
+   {
+    "q": "What is the difference between authentication and authorization? How do you store passwords safely?",
+    "a": "Authentication proves who you are; authorization decides what you are allowed to do. Passwords must never be stored in plain text: hash them with a slow, salted algorithm such as bcrypt or Argon2.",
+    "keys": [
+     "who you are|identity|verify",
+     "permission|allowed|access",
+     "hash",
+     "salt",
+     "bcrypt|argon|scrypt"
+    ]
+   }
+  ],
+  "Machine Learning": [
+   {
+    "q": "Explain overfitting and three ways to reduce it.",
+    "a": "Overfitting is when a model memorises the training data, including noise, so it scores well on training data but poorly on new data. Reduce it with more data, regularisation (L1/L2 or dropout), simpler models, cross-validation and early stopping.",
+    "keys": [
+     "training data|training",
+     "new data|unseen|generaliz|generalis",
+     "regulari",
+     "cross-validation|cross validation",
+     "more data|simpler|early stopping|dropout"
+    ]
+   },
+   {
+    "q": "How do you choose evaluation metrics for an imbalanced classification problem?",
+    "a": "Accuracy is misleading when classes are imbalanced, so use precision, recall, F1-score, the confusion matrix, and PR-AUC or ROC-AUC. Choose based on the cost of errors, for example recall when missing a positive case is costly.",
+    "keys": [
+     "accuracy",
+     "precision",
+     "recall",
+     "f1",
+     "confusion matrix|auc|roc"
+    ]
+   },
+   {
+    "q": "Explain the bias-variance trade-off.",
+    "a": "Bias is error from overly simple assumptions (underfitting); variance is error from being too sensitive to the training data (overfitting). A more complex model lowers bias but raises variance, so you look for the balance that minimises total error on unseen data.",
+    "keys": [
+     "bias",
+     "variance",
+     "underfit",
+     "overfit",
+     "complex|trade-off|tradeoff|balance"
+    ]
+   }
+  ],
+  "Deep Learning": [
+   {
+    "q": "How does backpropagation work, and what causes vanishing gradients?",
+    "a": "Backpropagation computes the gradient of the loss with respect to each weight by applying the chain rule backwards through the network, then gradient descent updates the weights. Vanishing gradients happen when gradients shrink through many layers (for example with sigmoid), so early layers barely learn; ReLU, residual connections and batch normalisation help.",
+    "keys": [
+     "gradient",
+     "chain rule",
+     "loss",
+     "weights|update|gradient descent",
+     "relu|residual|batch norm|vanishing"
+    ]
+   }
+  ],
+  "NLP": [
+   {
+    "q": "How do you turn text into features a model can use (TF-IDF, embeddings, transformers)?",
+    "a": "Text can be turned into numbers with bag-of-words or TF-IDF, which count and weight words, or with embeddings such as word2vec or transformer models that capture meaning in dense vectors. TF-IDF is simple and fast; embeddings handle synonyms and context better.",
+    "keys": [
+     "tf-idf|tfidf|bag of words|bag-of-words",
+     "embedding",
+     "vector",
+     "meaning|context|semantic",
+     "transformer|word2vec|bert"
+    ]
+   },
+   {
+    "q": "What is the difference between stemming and lemmatization?",
+    "a": "Stemming chops word endings with rules, quickly but crudely, so 'studies' may become 'studi'. Lemmatization uses vocabulary and grammar to return a real dictionary base form, so 'better' becomes 'good'. Lemmatization is more accurate but slower.",
+    "keys": [
+     "stem",
+     "lemma|lemmatiz",
+     "rule|chop|suffix",
+     "dictionary|real word|base form",
+     "accurate|slower|fast|crude"
+    ]
+   }
+  ],
+  "LLMs": [
+   {
+    "q": "How do large language models generate text, and what causes hallucinations?",
+    "a": "An LLM predicts the next token given the previous tokens, using a transformer with attention, and generates text by repeatedly sampling the next token. Hallucinations happen because the model optimises for plausible text, not verified truth, and has no built-in fact-checking.",
+    "keys": [
+     "next token|next word|predict",
+     "transformer|attention",
+     "probab|sampl",
+     "plausible|not verified|truth|fact",
+     "train|token"
+    ]
+   },
+   {
+    "q": "How would you reduce hallucinations in an application built on an LLM?",
+    "a": "Ground the model with retrieval (RAG) so it answers from trusted documents, instruct it to say when it does not know, lower the temperature, require citations, validate its outputs, and add human review for high-stakes answers.",
+    "keys": [
+     "rag|retrieval|ground",
+     "documents|sources|context",
+     "temperature",
+     "cite|citation|verify|validat",
+     "don't know|do not know|unsure|human"
+    ]
+   }
+  ],
+  "RAG": [
+   {
+    "q": "Explain how retrieval-augmented generation works and how you would evaluate it.",
+    "a": "RAG retrieves relevant chunks from a knowledge base, usually with embeddings and a vector store, and adds them to the prompt so the LLM answers using that context. Evaluate retrieval quality (recall and precision of retrieved chunks) and answer quality (faithfulness to the sources, relevance, correctness) on a test set.",
+    "keys": [
+     "retriev",
+     "embedding|vector",
+     "chunk|document",
+     "prompt|context",
+     "evaluat|faithful|relevan|metric"
+    ]
+   }
+  ],
+  "Word embeddings": [
+   {
+    "q": "What is an embedding, and why is cosine similarity used to compare them?",
+    "a": "An embedding is a dense vector that represents text so that similar meanings sit close together in vector space. Cosine similarity compares the angle between vectors rather than their length, so it measures similarity of direction (meaning) regardless of text length.",
+    "keys": [
+     "vector",
+     "meaning|semantic",
+     "similar|close",
+     "cosine|angle",
+     "length|direction|dense"
+    ]
+   }
+  ],
+  "pandas": [
+   {
+    "q": "How do you handle missing data and merge two DataFrames in pandas?",
+    "a": "Use isna() or isnull() to find missing values, then fillna() to fill them (with the mean, median or a constant) or dropna() to remove rows. Merge with pd.merge(df1, df2, on='key', how='left'), choosing inner, left, right or outer like a SQL join.",
+    "keys": [
+     "isna|isnull|missing|nan",
+     "fillna|dropna|fill|drop",
+     "merge",
+     "on=|key|column",
+     "how|inner|left|outer"
+    ]
+   }
+  ],
+  "scikit-learn": [
+   {
+    "q": "Explain train/test split, cross-validation and how you avoid data leakage.",
+    "a": "Split the data into training and test sets so the model is evaluated on unseen data; cross-validation repeats this over several folds for a more reliable estimate. Avoid leakage by fitting scalers and encoders only on the training data (for example inside a Pipeline) and never using test data or the target to create features.",
+    "keys": [
+     "train|training",
+     "test",
+     "cross-validation|cross validation|fold",
+     "leakage|leak",
+     "pipeline|fit only|fit on"
+    ]
+   }
+  ],
+  "TensorFlow": [
+   {
+    "q": "What is the difference between TensorFlow and PyTorch, and which have you used for what?",
+    "a": "Both build neural networks. PyTorch uses dynamic computation graphs and a more Pythonic, debug-friendly style that is popular in research, while TensorFlow (with Keras) has strong tooling for production deployment such as TF Serving and TFLite. Say which you used, for which project, and why.",
+    "keys": [
+     "dynamic|graph",
+     "keras|pythonic|debug",
+     "production|deploy|serving|tflite",
+     "research",
+     "project|used"
+    ]
+   }
+  ],
+  "PyTorch": [
+   {
+    "q": "Walk me through a PyTorch training loop.",
+    "a": "Load a batch from the DataLoader, run the forward pass, compute the loss, call optimizer.zero_grad(), then loss.backward() to compute gradients and optimizer.step() to update the weights. Repeat for each epoch and evaluate with model.eval() and no_grad on validation data.",
+    "keys": [
+     "dataloader|batch",
+     "forward",
+     "loss",
+     "backward",
+     "optimizer|zero_grad|step",
+     "epoch"
+    ]
+   }
+  ],
+  "Data Structures": [
+   {
+    "q": "When would you use a hash map instead of a tree, and what are their time complexities?",
+    "a": "A hash map gives average O(1) lookup, insert and delete but no ordering. A balanced tree gives O(log n) operations and keeps keys sorted, supporting range queries and ordered traversal. Use a hash map for fast key lookups and a tree when you need sorted order.",
+    "keys": [
+     "o(1)|constant",
+     "o(log n)|log n",
+     "order|sorted",
+     "hash",
+     "range|tree"
+    ]
+   },
+   {
+    "q": "Explain how a stack and a queue differ and give a real use for each.",
+    "a": "A stack is last-in-first-out (LIFO), used for undo, function calls and depth-first search. A queue is first-in-first-out (FIFO), used for task scheduling, breadth-first search and buffering requests.",
+    "keys": [
+     "lifo|last in first out|last-in",
+     "fifo|first in first out|first-in",
+     "undo|call stack|dfs|recursion",
+     "bfs|scheduling|buffer|task",
+     "push|pop|enqueue|dequeue"
+    ]
+   }
+  ],
+  "Algorithms": [
+   {
+    "q": "Explain Big-O notation and the complexity of the sorting algorithm you would use by default.",
+    "a": "Big-O describes how running time or memory grows with input size in the worst case, ignoring constants. A good default sort is merge sort or quicksort (or the language's built-in Timsort), which run in O(n log n) time.",
+    "keys": [
+     "input size|grows|growth",
+     "worst case|upper bound|worst-case",
+     "o(n log n)|n log n",
+     "merge sort|quicksort|timsort",
+     "constant"
+    ]
+   },
+   {
+    "q": "How would you detect a cycle in a linked list?",
+    "a": "Use Floyd's tortoise and hare: move one pointer one step and another two steps. If there is a cycle they eventually meet; otherwise the fast pointer reaches null. It runs in O(n) time and O(1) space; a hash set of visited nodes also works but uses O(n) space.",
+    "keys": [
+     "two pointers|slow|fast|tortoise|hare",
+     "meet",
+     "null",
+     "o(n)",
+     "o(1)|hash set|visited"
+    ]
+   }
+  ],
+  "OOP": [
+   {
+    "q": "Explain the four pillars of OOP with an example from your own code.",
+    "a": "The four pillars are encapsulation (hiding data behind methods), abstraction (exposing only essentials), inheritance (reusing behaviour from a parent class) and polymorphism (the same interface behaving differently per type). Then give an example from your own project.",
+    "keys": [
+     "encapsulation",
+     "abstraction",
+     "inheritance",
+     "polymorphism",
+     "example|class|object"
+    ]
+   },
+   {
+    "q": "What is the difference between composition and inheritance?",
+    "a": "Inheritance models an 'is-a' relationship and reuses a parent's code but couples classes tightly. Composition models 'has-a' by holding other objects and is more flexible and easier to change. A common guideline is to prefer composition over inheritance.",
+    "keys": [
+     "is-a|is a",
+     "has-a|has a",
+     "coupl|tight",
+     "flexible|change",
+     "prefer composition|composition over inheritance"
+    ]
+   }
+  ],
+  "Operating Systems": [
+   {
+    "q": "What is the difference between a process and a thread, and what is a deadlock?",
+    "a": "A process is an independent running program with its own memory space; a thread is a unit of execution inside a process that shares its memory with other threads. A deadlock is when processes wait for each other's resources forever; it needs mutual exclusion, hold and wait, no preemption and circular wait.",
+    "keys": [
+     "process",
+     "thread",
+     "memory|share",
+     "deadlock",
+     "circular wait|mutual exclusion|hold and wait|resources"
+    ]
+   }
+  ],
+  "Computer Networks": [
+   {
+    "q": "What happens when you type a URL in the browser and press Enter?",
+    "a": "The browser resolves the domain to an IP address via DNS, opens a TCP connection (plus a TLS handshake for HTTPS), sends an HTTP request, the server processes it and returns a response, and the browser renders the HTML, loading CSS, JavaScript and images.",
+    "keys": [
+     "dns",
+     "ip",
+     "tcp",
+     "http|https|tls",
+     "render|response|html"
+    ]
+   }
+  ],
+  "System Design": [
+   {
+    "q": "How would you design a URL shortener (or a chat app) that serves a million users?",
+    "a": "Clarify requirements and scale, then sketch clients, a load balancer, stateless app servers, a database (with replication or sharding) and a cache. For a URL shortener, generate unique short IDs (base62 of a counter or a hash), store the mapping, redirect on lookup, and cache hot links.",
+    "keys": [
+     "requirement|scale",
+     "load balancer",
+     "database",
+     "cache|caching",
+     "shard|replicat|unique id|base62|hash"
+    ]
+   }
+  ],
+  "Design Patterns": [
+   {
+    "q": "Which design patterns have you used, and why was each the right choice?",
+    "a": "Name the patterns you have actually used, such as Singleton, Factory, Observer, Strategy or MVC, and explain the problem each solved in your code and why it beat a simple alternative.",
+    "keys": [
+     "singleton|factory|observer|strategy|mvc|decorator|adapter",
+     "problem",
+     "reuse|maintain|decouple|flexib",
+     "example|project",
+     "trade-off|alternative"
+    ]
+   }
+  ],
+  "Microservices": [
+   {
+    "q": "What are the trade-offs between a monolith and microservices?",
+    "a": "Microservices split an app into small, independently deployable services that can scale and be released separately and use different technologies, but add complexity: network calls, distributed data consistency, monitoring and deployment overhead. A monolith is simpler to build and debug and is fine for small teams.",
+    "keys": [
+     "independent|independently",
+     "scal",
+     "complex",
+     "monolith",
+     "network|distributed|deploy|team"
+    ]
+   }
+  ],
+  "Agile": [
+   {
+    "q": "How does your team work in sprints and what do you do when a deadline slips?",
+    "a": "Work in short sprints with planning, daily stand-ups, a review and a retrospective. When a deadline slips, flag it early, break down and re-prioritise the work with the team, cut or defer lower-value scope, and communicate the new estimate instead of hiding it.",
+    "keys": [
+     "sprint",
+     "stand-up|standup|daily",
+     "retrospective|review",
+     "prioriti",
+     "communicate|flag|scope|estimate"
+    ]
+   }
+  ],
+  "Unit Testing": [
+   {
+    "q": "How do you decide what to unit test, and what is mocking?",
+    "a": "Test business logic, edge cases and failure paths, not framework code or trivial getters; tests should be small, fast and independent. Mocking replaces real dependencies such as databases or APIs with fakes so the unit is tested in isolation.",
+    "keys": [
+     "logic|edge case",
+     "fast|independent|small",
+     "mock",
+     "dependenc|database|api",
+     "isolat"
+    ]
+   }
+  ],
+  "Flutter": [
+   {
+    "q": "How does state management work in Flutter, and which approach have you used?",
+    "a": "State management controls how data changes update the UI. Options include setState for local state, Provider or Riverpod, Bloc and GetX. Choose by app size: setState for small widgets and Provider or Bloc for shared, app-wide state.",
+    "keys": [
+     "setstate",
+     "provider|riverpod",
+     "bloc|getx",
+     "widget",
+     "state|rebuild"
+    ]
+   }
+  ],
+  "React Native": [
+   {
+    "q": "How does React Native differ from native development and from Flutter?",
+    "a": "React Native uses JavaScript and React to render real native components, so code is shared across iOS and Android. Native development uses Swift or Kotlin for the best performance and platform access. Flutter draws its own UI with Dart instead of using native components.",
+    "keys": [
+     "javascript|react",
+     "native component|native",
+     "ios",
+     "android|cross-platform|cross platform",
+     "flutter|dart|bridge|performance"
+    ]
+   }
+  ],
+  "Android": [
+   {
+    "q": "Explain the Android activity lifecycle.",
+    "a": "The activity moves through onCreate, onStart, onResume (running), onPause, onStop and onDestroy. Knowing it matters for saving state, releasing resources and handling rotation or the app being backgrounded.",
+    "keys": [
+     "oncreate",
+     "onstart",
+     "onresume",
+     "onpause",
+     "onstop|ondestroy"
+    ]
+   }
+  ],
+  "Linux": [
+   {
+    "q": "Which Linux commands do you use to debug a slow or failing service?",
+    "a": "Check service status with systemctl, read logs with journalctl or tail -f, inspect processes and resource use with top or htop, check disk with df and du, memory with free, ports with ss or netstat, and test connectivity with curl or ping.",
+    "keys": [
+     "log|journalctl|tail",
+     "top|htop|ps",
+     "df|du|disk",
+     "memory|free",
+     "systemctl|netstat|ss|curl|ping"
+    ]
+   }
+  ],
+  "Tailwind CSS": [
+   {
+    "q": "What are the pros and cons of utility-first CSS compared with writing your own CSS?",
+    "a": "Utility-first CSS styles elements with small single-purpose classes directly in the markup, which speeds development, keeps the design consistent and avoids naming and ever-growing stylesheets. The downsides are long class lists in the HTML and a learning curve; custom CSS can be cleaner for complex or very bespoke components.",
+    "keys": [
+     "utility",
+     "class",
+     "consistent|fast|speed",
+     "naming|stylesheet",
+     "long|learning|verbose|clutter"
+    ]
+   }
+  ],
+  "Redux": [
+   {
+    "q": "Explain the Redux data flow and when Redux is overkill.",
+    "a": "Redux keeps global state in a single store: components dispatch actions, reducers (pure functions) compute the new state and the UI re-renders from the store. It is overkill for small apps or when local state or context is enough.",
+    "keys": [
+     "store",
+     "action",
+     "reducer",
+     "dispatch",
+     "overkill|small|context"
+    ]
+   }
+  ],
+  "Next.js": [
+   {
+    "q": "What is the difference between SSR, SSG and CSR, and when would you pick each in Next.js?",
+    "a": "CSR renders in the browser after loading JavaScript, SSR renders HTML on the server for every request, and SSG builds pages at build time. Use SSR for personalised or frequently changing data, SSG for static content such as blogs or docs, and CSR for private dashboards where SEO does not matter.",
+    "keys": [
+     "ssr|server-side|server side",
+     "ssg|static|build time",
+     "csr|client-side|client side",
+     "seo",
+     "dynamic|fresh|fast|cache"
+    ]
+   }
+  ],
+  "WebSockets": [
+   {
+    "q": "How do WebSockets differ from HTTP polling and when would you use them?",
+    "a": "A WebSocket is a persistent, two-way connection between client and server, so the server can push data instantly. Polling repeatedly sends HTTP requests, wasting bandwidth and adding delay. Use WebSockets for chat, live notifications or collaborative apps.",
+    "keys": [
+     "persistent|open connection",
+     "two-way|bidirectional|full-duplex",
+     "push|real-time|real time",
+     "polling",
+     "chat|live|notification"
+    ]
+   }
+  ],
+  "Debugging": [
+   {
+    "q": "Tell me about the hardest bug you have fixed and how you found it.",
+    "a": "Tell a short story: the symptom, how you reproduced it, how you narrowed it down (logs, breakpoints, bisecting, isolating), the root cause, the fix and what you did to prevent it, such as adding a test.",
+    "keys": [
+     "reproduc",
+     "log|breakpoint|debugger",
+     "root cause|cause",
+     "fix",
+     "test|prevent"
+    ]
+   }
+  ],
+  "Data Analysis": [
+   {
+    "q": "Walk me through how you would explore a new dataset.",
+    "a": "Start with the shape, types and missing values, look at summary statistics and distributions, clean problems and duplicates, visualise relationships and outliers, then form and test hypotheses tied to the business question.",
+    "keys": [
+     "missing|null",
+     "summary|statistics|describe|distribution",
+     "clean|duplicate",
+     "visuali|plot|chart",
+     "outlier|hypothes|question"
+    ]
+   }
+  ]
+ }
+}

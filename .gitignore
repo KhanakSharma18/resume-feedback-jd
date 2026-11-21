@@ -1,0 +1,14 @@
+# secrets: never commit these
+.env
+*.env
+secrets.*
+# python
+__pycache__/
+*.pyc
+.venv/
+venv/
+# runtime files
+code/Chat_Bot/uploads/
+*.log
+.DS_Store
+.ipynb_checkpoints/

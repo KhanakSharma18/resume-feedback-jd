@@ -1,0 +1,23 @@
+Prompt ID: P1
+Name: Resume weaknesses review
+Step in workflow: Resumelyzer panel: 'Your weaknesses' (after the rule-based ATS check)
+Purpose: List the 5 biggest weaknesses of a resume, optionally against a job description.
+Tool and model: Llama 3.1 8B Instruct (meta-llama/Meta-Llama-3.1-8B-Instruct, 4-bit) via Hugging Face Transformers on Google Colab
+Settings: temperature 0.6, top_p 0.9, max_new_tokens 512 (notebook defaults)
+System prompt: "You are a helpful AI assistant who provides clear and concise answers." (set in the Colab notebook)
+Note: the app appends the text " keep the answer short and precise" to the end of every user prompt below.
+Examples included in prompt: 0
+Variables: {resume_text} = resume text, first 6000 characters. {job_description} = pasted job post, first 3000 characters (the JOB DESCRIPTION block is left out when no job post is given).
+Output format: free text
+
+----- USER PROMPT TEMPLATE (v1, exact text sent by the app) -----
+You are a strict but fair resume reviewer. Read the resume below and list its 5 biggest weaknesses as short bullet points. Be specific to this resume. Do not rewrite the resume.
+
+RESUME:
+{resume_text}
+
+----- same prompt when no job description is given -----
+You are a strict but fair resume reviewer. Read the resume below and list its 5 biggest weaknesses as short bullet points. Be specific to this resume. Do not rewrite the resume.
+
+RESUME:
+{resume_text}

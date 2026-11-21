@@ -1,0 +1,32 @@
+Aarav Mehta
+aarav.mehta@example.com | +91 90000 00000 | github.com/aarav-sample | linkedin.com/in/aarav-sample
+
+SUMMARY
+Computer science student interested in full stack development and applied machine learning.
+
+EDUCATION
+B.Tech Computer Science, Sample University, 2022 - 2026, CGPA 8.4
+
+SKILLS
+Languages: Python, JavaScript, SQL, Java
+Frameworks: React, Flask, Node.js
+Databases: MySQL, MongoDB
+Tools: Git, GitHub, Docker, Postman
+
+PROJECTS
+Campus Cab Share (Flask, MySQL, React)
+- Built a ride sharing web app for 300 students using Flask REST APIs and a React front end.
+- Designed a MySQL schema and wrote JWT login, cutting manual booking requests by 40 percent.
+- Tested APIs with Postman and deployed the app on Render.
+
+Study Buddy Chatbot (Python, NLP)
+- Developed a question answering bot over lecture notes using TF-IDF and cosine similarity.
+- Evaluated it on 50 questions and reached 78 percent correct answers.
+
+EXPERIENCE
+Web Development Intern, Example Labs, Jun 2025 - Aug 2025
+- Fixed 25 front end bugs in a React dashboard and added unit tests with Jest.
+- Worked in an Agile team with weekly sprint reviews.
+
+CERTIFICATIONS
+Python for Everybody, Coursera
