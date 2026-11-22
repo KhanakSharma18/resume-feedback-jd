@@ -4,7 +4,9 @@ SCSE4041 Mini Project, Milestone 2. Upload a resume (PDF), paste a job descripti
 a job match with matched and missing skills, written advice from an LLM, a job-tailored resume PDF, and an interview practice quiz
 built from your own projects.
 
-**Prototype link:** `PASTE YOUR COLAB / PROTOTYPE LINK HERE`
+**Prototype link:** `Streamlit deployed link- https://resume-feedback-jd-9yvpak5aragwjzm4kvcmnk.streamlit.app/
+
+Google Colab link-https://colab.research.google.com/drive/1BE_LLi7lHqSLPLb265mcT35WlDs2svlM?usp=sharing`
 
 ## Team
 S24CSEU0009
